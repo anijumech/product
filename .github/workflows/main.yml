@@ -1,0 +1,26 @@
+            - name: Jenkins-Action
+  # You may pin to the exact commit or the version.
+  # uses: joshlk/jenkins-githubaction@8ef510cf2dfb3affe8cbdfef1898b23c28847f39
+  uses: joshlk/jenkins-githubaction@V0.0.1
+  with:
+    # Jenkins URL including http/https protocol
+    url: http://ec2-16-171-41-207.eu-north-1.compute.amazonaws.com:8080/
+    # Jenkins job name to build
+    job_name: "JFrog Hello World"
+    # Jenkins username
+    username: # anbanerj
+    # Jenkins API token
+    api_token: 11a27fe98059447d70f247144d09b458b4
+    # Build parameters in JSON format e.g. `{"field1":"value1"}`
+    parameters: # optional
+    # Cookies to include in HTTP requests in JSON format e.g. `{"field1":"value1"}`
+    cookies: # optional
+    # Should the runner wait for the build to finish and provide ok status
+    wait: # optional, default is True
+    # Timeout in seconds for build to complete
+    timeout: # optional, default is 600
+    # Timeout in seconds for build to start
+    start_timeout: # optional, default is 600
+    # How frequently in seconds to query Jenkins for build status
+    interval: # optional, default is 5
+          
