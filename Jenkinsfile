@@ -14,7 +14,7 @@ pipeline {
             steps {
                 script {
                     // Checkout code from Git repository
-                    git credentialsId: "${GIT_CREDENTIALS_ID}", url: "${GIT_REPO}", branch: "${BRANCH_NAME}" 
+                    echo "Checking out ..."
                 }
             }
         }
@@ -22,12 +22,7 @@ pipeline {
         stage('Run Tests') {
             steps {
                 script {
-                    // Run your test commands (adjust as necessary)
-                    // sh '''#!/bin/bash
-                    echo "Running tests..."
-                    // # Add your test command, for example:
-                    // npm install && npm test
-                    // '''
+                    echo "Running tests ...."
                 }
             }
         }
@@ -36,10 +31,7 @@ pipeline {
             steps {
                 script {
                     // Checkout to a new release branch
-                    sh '''#!/bin/bash
-                    git checkout -b ${RELEASE_BRANCH}
-                    git push origin ${RELEASE_BRANCH}
-                    '''
+                    echo "Creating release branch ...."
                 }
             }
         }
@@ -48,11 +40,7 @@ pipeline {
             steps {
                 script {
                     // Push changes to the release branch
-                    sh '''#!/bin/bash
-                    git add .
-                    git commit -m "Creating release branch ${RELEASE_BRANCH}"
-                    git push origin ${RELEASE_BRANCH}
-                    '''
+                    echo "Push changes to the release branch ..."
                 }
             }
         }
