@@ -14,7 +14,7 @@ pipeline {
             steps {
                 script {
                     // Checkout code from Git repository
-                    echo "Checking out ..."
+                    echo "Checking out ...
                 }
             }
         }
