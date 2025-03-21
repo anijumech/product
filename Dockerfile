@@ -2,7 +2,7 @@
 FROM httpd:alpine
 
 # Set the maintainer label
-LABEL maintainer="your-email@example.com"
+LABEL maintainer="anbanerj@example.com"
 
 # Copy the static HTML page into the Apache's default web directory
 COPY ./index.html /usr/local/apache2/htdocs/
