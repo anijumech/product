@@ -2,8 +2,12 @@ version: 0.0
 os: linux
 
 hooks:
-  ApplicationStart:
-    - runas: root
+  BeforeInstall:
+    - location: scripts/installDocker.sh
       timeout: 300
-      command: |
-        docker run -p 8080:8080 -d anbanerj11/nodejsapp
+      runas: ec2-user
+
+  ApplicationStart:
+    - location: scripts/installApp.sh
+      timeout: 300
+      runas: ec2-user
