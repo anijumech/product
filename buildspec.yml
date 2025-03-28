@@ -1,0 +1,31 @@
+version: 0.2
+
+phases:
+  install:
+    runtime-versions:
+      nodejs: 18  # Specify your runtime version
+    commands:
+      - echo "Installing dependencies..."
+      - npm install
+
+  build:
+    commands:
+      - echo "Building the application..."
+      - npm run build  # Replace with your actual build command
+
+  post_build:
+    commands:
+      - echo "Packaging application for CodeDeploy..."
+      - zip -r deploy.zip *  # Creates a ZIP package for CodeDeploy
+      - echo "Uploading to S3..."
+      - aws s3 cp deploy.zip s3://your-bucket-name/deploy.zip
+      - echo "Updating CodeDeploy..."
+      - aws deploy create-deployment \
+          --application-name MyCodeDeployApp \
+          --deployment-group-name MyDeploymentGroup \
+          --s3-location bucket=your-bucket-name,key=deploy.zip,bundleType=zip
+
+artifacts:
+  files:
+    - deploy.zip
+  discard-paths: yes
