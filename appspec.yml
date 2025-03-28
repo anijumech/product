@@ -5,9 +5,9 @@ hooks:
   BeforeInstall:
     - location: /installDocker.sh
       timeout: 300
-      runas: ec2-user
+      runas: ssm-user
 
   ApplicationStart:
     - location: /installApp.sh
       timeout: 300
-      runas: ec2-user
+      runas: ssm-user
