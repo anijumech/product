@@ -7,7 +7,7 @@ const server = http.createServer((req, res) => {
   const formattedDate = currentDate.toString();
 
   // Print the current date and time to the console
-  console.log("Current Date and Time: " + formattedDate);
+  console.log("Current Date and Time post update : " + formattedDate);
 
   // Send the current date and time to the web browser
   res.writeHead(200, { 'Content-Type': 'text/html' });
