@@ -3,11 +3,11 @@ os: linux
 
 hooks:
   BeforeInstall:
-    - location: /app/scripts/installDocker.sh
+    - location: /installDocker.sh
       timeout: 300
       runas: ec2-user
 
   ApplicationStart:
-    - location: /app/scripts/installApp.sh
+    - location: /installApp.sh
       timeout: 300
       runas: ec2-user
